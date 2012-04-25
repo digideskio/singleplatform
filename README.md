@@ -1,0 +1,4 @@
+singleplatform
+==============
+
+SinglePlatform API wrapper
