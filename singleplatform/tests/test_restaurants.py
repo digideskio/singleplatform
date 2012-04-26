@@ -10,7 +10,7 @@ from . import BaseEnpdointTestCase
 class RestaurantsEndpointTestCase(BaseEnpdointTestCase):
     def test_search(self):
         response = self.api.restaurants.search({
-            'q': '10001',
+            'q': 'New York, NY',
         })
         assert response.get('ok') is True
         assert 'results' in response

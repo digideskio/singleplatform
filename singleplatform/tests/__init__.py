@@ -17,6 +17,7 @@ class BaseEnpdointTestCase(unittest.TestCase):
     default_locationid = u'haru-7'
     def setUp(self):
         self.api = singleplatform.SinglePlatform(
-            client_id=_creds.CLIENT_ID,
-            signing_key=_creds.SIGNING_KEY
+            _creds.CLIENT_ID,
+            _creds.SIGNING_KEY,
+            _creds.API_KEY
         )

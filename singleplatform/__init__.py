@@ -53,11 +53,11 @@ def b64_key_to_binary(key):
 class SinglePlatform(object):
     """SinglePlatform API wrapper"""
 
-    def __init__(self, client_id=None, signing_key=None):
+    def __init__(self, client_id, signing_key, api_key=None):
         """Sets up the api object"""
         binary_key = b64_key_to_binary(signing_key)
         # Set up endpoints
-        self.base_requester = self.Requester(client_id, binary_key)
+        self.base_requester = self.Requester(client_id, binary_key, api_key)
         # Dynamically enable endpoints
         self._attach_endpoints()
 
@@ -71,8 +71,9 @@ class SinglePlatform(object):
 
     class Requester(object):
         """Api requesting object"""
-        def __init__(self, client_id=None, binary_key=None):
+        def __init__(self, client_id, binary_key, api_key=None,):
             """Sets up the api object"""
+            self.api_key = api_key
             self.client_id = client_id
             self.binary_key = binary_key
 
@@ -84,6 +85,9 @@ class SinglePlatform(object):
             # Get the uri and it's corresponding signature
             relative_uri = self.build_uri(path, params)
             params['sig'] = self.sign_uri(relative_uri)
+            # Include the API key if provided
+            if self.api_key:
+                params['apiKey'] = self.api_key
             # Make the request, including the sig
             final_uri = u'{API_ENDPOINT}{signed_uri}'.format(
                 API_ENDPOINT=API_ENDPOINT,

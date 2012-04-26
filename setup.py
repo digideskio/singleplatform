@@ -13,11 +13,11 @@ setup(
     author='Mike Lewis',
     author_email='mike@fondu.com',
     url='http://github.com/mLewisLogic/singleplatform',
-    description='easy-as-pie singleplatform wrapper library',
+    description='easy-as-pie SinglePlatform wrapper library',
     long_description=open('./README.txt', 'r').read(),
     download_url='http://github.com/mLewisLogic/singleplatform/tarball/master',
     classifiers=[
-        'Development Status :: 1 - Planning',
+        'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'Natural Language :: English',
         'Operating System :: OS Independent',
