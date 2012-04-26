@@ -22,8 +22,7 @@ Dependencies:
 
 ## Usage
 
-### Instantiating a client
-#### (https://singleplatform.jira.com/wiki/display/PubDocs/SinglePlatform+Publisher+Integration#SinglePlatformPublisherIntegration-APIKey)
+### Instantiating a client [authentication docs](https://singleplatform.jira.com/wiki/display/PubDocs/SinglePlatform+Publisher+Integration#SinglePlatformPublisherIntegration-APIKey)
     client = singleplatform.SinglePlatform('YOUR_CLIENT_ID', 'YOUR_SIGNING_KEY', 'YOUR_API_KEY')
 
 
