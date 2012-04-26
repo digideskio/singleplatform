@@ -136,9 +136,6 @@ class SinglePlatform(object):
         """Restaurant specific endpoint"""
         endpoint = 'restaurants'
 
-        """
-        General
-        """
         def search(self, params):
             """https://singleplatform.jira.com/wiki/display/PubDocs/SinglePlatform+Publisher+Integration#SinglePlatformPublisherIntegration-URIrestaurantssearch"""
             return self.GET('search', params)

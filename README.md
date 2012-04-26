@@ -1,6 +1,6 @@
 # singleplatform
 
-Python wrapper for the [SinglePlatform API](http://singleplatform.com/). Originally developed to power [Fondu](http://fondu.com).
+Python wrapper for the [SinglePlatform REST API](https://singleplatform.jira.com/wiki/display/PubDocs/SinglePlatform+Publisher+Integration). Originally developed to power [Fondu](http://fondu.com).
 
 Philosophy:
 
