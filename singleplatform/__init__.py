@@ -26,7 +26,7 @@ except ImportError:
 
 
 
-__version__ = '20120425'
+__version__ = '20120430'
 __author__ = u'Mike Lewis'
 
 API_ENDPOINT = 'http://api.singleplatform.co'
