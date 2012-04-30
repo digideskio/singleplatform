@@ -71,7 +71,8 @@ class SinglePlatform(object):
 
     class Requester(object):
         """Api requesting object"""
-        def __init__(self, client_id, binary_key, api_key=None,):
+
+        def __init__(self, client_id, binary_key, api_key=None):
             """Sets up the api object"""
             self.api_key = api_key
             self.client_id = client_id
@@ -110,12 +111,13 @@ class SinglePlatform(object):
             """Sign this uri"""
             digest = hmac.new(self.binary_key, uri, hashlib.sha1).digest()
             digest = base64.b64encode(digest)
-            digest =  digest.translate(string.maketrans('+/', '-_'))
+            digest = digest.translate(string.maketrans('+/', '-_'))
             return digest.rstrip('=')
 
 
     class _Endpoint(object):
         """Generic endpoint class"""
+
         def __init__(self, requester):
             """Stores the request function for retrieving data"""
             self.requester = requester
@@ -129,7 +131,6 @@ class SinglePlatform(object):
         def GET(self, path=None, *args, **kwargs):
             """Use the requester to get the data"""
             return self.requester.GET(self._expanded_path(path), *args, **kwargs)
-
 
 
     class Restaurants(_Endpoint):
@@ -153,11 +154,10 @@ class SinglePlatform(object):
             return self.GET('{LOCATION}/shortmenu'.format(LOCATION=LOCATION))
 
 
-
-
 """
 Network helper functions
 """
+
 def _request_with_retry(url, data=None):
     """Tries to load data from an endpoint using retries"""
     for i in xrange(NUM_REQUEST_RETRIES):
@@ -168,6 +168,7 @@ def _request_with_retry(url, data=None):
             if e.__class__ in []: raise
             if ((i + 1) == NUM_REQUEST_RETRIES): raise
         time.sleep(1)
+
 
 def _process_request_with_httplib2(url, data=None):
     """Make the request and handle exception processing"""
@@ -191,6 +192,7 @@ def _process_request_with_httplib2(url, data=None):
         log.error(e)
         raise SinglePlatformException(u'Error connecting with SinglePlatform API')
 
+
 def _json_to_data(s):
     """Convert a response string to data"""
     try:
@@ -198,6 +200,7 @@ def _json_to_data(s):
     except ValueError, e:
         log.error('Invalid response: {0}'.format(e))
         raise SinglePlatformException(e)
+
 
 def _check_response(data):
     """Processes the response data"""
